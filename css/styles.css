@@ -14,6 +14,21 @@ body {
   font-family: "OstrichSans-Heavy";
   src: url(./fonts/OstrichSans-Heavy.otf);
 }
+main h1, main h3, main h2 {
+  font-family: "OstrichSans-Heavy";
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+main h2 {
+  font-size: 2.25rem;
+  margin-bottom: 0.4rem;
+}
+main h3 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+}
+
 #whatsapp {
   position: fixed;
   bottom: 5px;
@@ -25,6 +40,29 @@ body {
 }
 #whatsapp a img:hover {
   transform: scale(1.1);
+}
+
+.bkgATLBody {
+  background: #f2f2f2;
+}
+
+.bkgATLBodyCont {
+  background: #eaeaea;
+}
+
+.youtube {
+  width: 100%;
+  max-width: 480px;
+}
+
+.linkCurso {
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.linkCurso:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
+  transition: 0.2s;
 }
 
 nav {
@@ -39,7 +77,7 @@ nav {
   transition: all 0.5s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .navbar-collapse {
     position: absolute;
     z-index: 1;
@@ -50,7 +88,7 @@ nav {
   }
 }
 .footer {
-  background-color: #d9d9d9;
+  background: #d9d9d9;
   color: #000000;
 }
 .footer a {
@@ -79,6 +117,207 @@ nav {
 }
 .footer__derechos {
   font-size: 0.7rem;
+}
+
+.btnATL {
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: letter-spacing 0.5s, box-shadow 0.5s;
+}
+.btnATL--rojo {
+  background: #dc0054;
+}
+.btnATL--rojo:hover {
+  color: #ffffff;
+  letter-spacing: 0.1rem;
+  box-shadow: 0 4px 8px 0 rgba(220, 0, 84, 0.7);
+  transition: letter-spacing 0.5s, box-shadow 0.5s;
+}
+.btnATL--verde {
+  background-color: #006878;
+}
+.btnATL--verde:hover {
+  color: #ffffff;
+  letter-spacing: 0.1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
+  transition: letter-spacing 0.5s, box-shadow 0.5s;
+}
+.btnATL i {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.welcome {
+  position: relative;
+}
+.welcome__background--desktop {
+  display: block;
+  width: 100%;
+}
+.welcome__background--mobile {
+  display: none;
+  width: 100%;
+}
+.welcome__slides {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 29%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+.welcome__slides p {
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.carousel-indicators .welcome__slides--dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.welcome__padi {
+  position: absolute;
+  bottom: 20px;
+  left: 33%;
+  width: 12%;
+}
+.welcome__padi img {
+  display: block;
+  width: 100%;
+}
+.welcome__dan {
+  position: absolute;
+  bottom: 24px;
+  right: 33%;
+  width: 18%;
+}
+.welcome__dan img {
+  display: block;
+  width: 100%;
+}
+.welcome__form {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  right: 20px;
+  width: 29%;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+}
+.welcome__form legend {
+  font-family: "OstrichSans-Heavy";
+  font-size: 2.25rem;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+.welcome__form .form-control,
+.welcome__form .form-select {
+  margin-bottom: 8px;
+}
+.welcome__form .form-control:focus,
+.welcome__form .form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 104, 120, 0.25);
+}
+
+@media screen and (max-width: 1100px) {
+  .welcome__slides p {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 950px) {
+  .welcome__slides p {
+    font-size: 1.2rem;
+  }
+  .welcome__form .form-control,
+.welcome__form .form-select {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9rem;
+    border-radius: 0.2rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  .welcome__slides p {
+    font-size: 1rem;
+  }
+  .welcome__form .form-control,
+.welcome__form .form-select {
+    padding: 0.1rem 0.2rem;
+    font-size: 0.8rem;
+    border-radius: 0.1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .welcome__background--desktop {
+    display: none;
+  }
+  .welcome__background--mobile {
+    display: block;
+  }
+  .welcome__slides {
+    top: 60%;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+  .welcome__slides p {
+    font-size: 1.2rem;
+  }
+  .welcome__padi {
+    top: 10px;
+    left: 75%;
+    width: 20%;
+  }
+  .welcome__dan {
+    top: 18px;
+    left: 5%;
+    width: 30%;
+  }
+  .welcome__form {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .welcome__slides {
+    top: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .welcome__slides {
+    top: 50%;
+  }
+  .welcome__slides p {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .welcome__slides {
+    top: 40%;
+  }
+  .welcome__slides p {
+    font-size: 0.9rem;
+  }
+}
+.mainTitle {
+  font-size: 3.5rem;
+}
+
+.introContacto {
+  margin: 10px;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
+}
+
+#homeViajes img {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */
