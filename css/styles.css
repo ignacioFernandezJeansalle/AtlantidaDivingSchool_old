@@ -320,4 +320,40 @@ nav {
   border-radius: 5px;
 }
 
+.cursos__flex {
+  width: 100%;
+  max-width: 450px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
+  border-radius: 5px;
+}
+.cursos__flex hr {
+  color: #dc0054;
+}
+.cursos__flex a {
+  margin: 10px auto;
+}
+
+.flexLista {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+}
+.flexLista__ico {
+  width: 30px;
+  height: 30px;
+  background-image: url(/img/common/shortcutIcon.ico);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+.flexLista__texto {
+  width: 100%;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
 /*# sourceMappingURL=styles.css.map */
