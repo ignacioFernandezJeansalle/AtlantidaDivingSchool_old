@@ -33,3 +33,16 @@
 		margin-left: 10px;
 	}
 }
+
+.btnATLPagCursos {
+	color: $colorATLRojo;
+	font-weight: bold;
+	text-decoration: none;
+
+	transition: all 0.5s;
+
+	&:hover {
+		color: $colorATLVerde;
+		transition: all 0.5s;
+	}
+}

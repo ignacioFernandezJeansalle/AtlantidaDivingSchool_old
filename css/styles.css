@@ -154,6 +154,17 @@ nav {
   margin-left: 10px;
 }
 
+.btnATLPagCursos {
+  color: #dc0054;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.btnATLPagCursos:hover {
+  color: #006878;
+  transition: all 0.5s;
+}
+
 .welcome {
   position: relative;
 }
