@@ -50,6 +50,10 @@ main h3 {
   background: #eaeaea;
 }
 
+.border-radius {
+  border-radius: 5px;
+}
+
 .youtube {
   width: 100%;
   max-width: 480px;
@@ -322,7 +326,6 @@ nav {
 
 .cursos__flex {
   width: 100%;
-  max-width: 450px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -354,6 +357,11 @@ nav {
   width: 100%;
   margin-bottom: 25px;
   text-align: justify;
+}
+
+.cursosCarousel {
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=styles.css.map */
