@@ -38,10 +38,10 @@ const renderFooter = () => {
 					<p class="mb-0 text-center text-md-start">PADI Dive Center S#19636</p>
 				</div>
 				<div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end align-items-center footer__redesSociales">
-					<a href="https://www.instagram.com/buceo_atlantida/" target="_blank"><i class="bi bi-instagram"></i></a>
-					<a href="https://www.facebook.com/BuceoAtlantida/" target="_blank"><i class="bi bi-facebook"></i></a>
-					<a href="https://twitter.com/buceoDS" target="_blank"><i class="bi bi-twitter"></i></a>
-					<a href="https://www.youtube.com/channel/UCoyCRFvtQJpkyWX3rAUg5Ig" target="_blank"><i class="bi bi-youtube"></i></a>
+					<a href="https://www.instagram.com/buceo_atlantida/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+					<a href="https://www.facebook.com/BuceoAtlantida/" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+					<a href="https://twitter.com/buceoDS" target="_blank" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+					<a href="https://www.youtube.com/channel/UCoyCRFvtQJpkyWX3rAUg5Ig" target="_blank" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
 				</div>
 			</div>
 			<div class="row">
