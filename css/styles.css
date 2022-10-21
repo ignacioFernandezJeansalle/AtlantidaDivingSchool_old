@@ -337,7 +337,7 @@ nav {
 
 .cursos__flex {
   width: 100%;
-  padding: 20px;
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
