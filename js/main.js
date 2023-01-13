@@ -1,16 +1,16 @@
 /****************************** functions ******************************/
 const getNavbarLinks = () => {
-	navbarLinks.push(new NavbarLink("Inicio", "/index.html"));
-	navbarLinks.push(new NavbarLink("Cursos", "/pages/cursos.html"));
-	navbarLinks.push(new NavbarLink("El Buda", "/pages/buda.html"));
-	navbarLinks.push(new NavbarLink("Viajes", "/pages/viajes.html"));
-	navbarLinks.push(new NavbarLink("Nosotros", "/pages/nosotros.html"));
-	navbarLinks.push(new NavbarLink("Contacto", "/pages/contacto.html"));
+  navbarLinks.push(new NavbarLink("Inicio", "/index.html"));
+  navbarLinks.push(new NavbarLink("Cursos", "/pages/cursos.html"));
+  navbarLinks.push(new NavbarLink("El Buda", "/pages/buda.html"));
+  navbarLinks.push(new NavbarLink("Viajes", "/pages/viajes.html"));
+  navbarLinks.push(new NavbarLink("Nosotros", "/pages/nosotros.html"));
+  navbarLinks.push(new NavbarLink("Contacto", "/pages/contacto.html"));
 };
 
 const renderNavbar = () => {
-	getNavbarLinks();
-	let content = `
+  getNavbarLinks();
+  let content = `
         <nav class="navbar navbar-expand-md navbar-dark">
             <div class="container-fluid position-relative">
                 <a class="navbar-brand" href="/index.html"><img src="/img/common/logoMenu.jpg" alt="Logo Atlantida Diving School" height="40px" /></a>
@@ -18,21 +18,21 @@ const renderNavbar = () => {
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav">`;
 
-	navbarLinks.forEach((x) => {
-		content += `<li class="nav-item"><a class="nav-link px-3" href="${x.file}">${x.label}</a></li>`;
-	});
+  navbarLinks.forEach((x) => {
+    content += `<li class="nav-item"><a class="nav-link px-3" href="${x.file}">${x.label}</a></li>`;
+  });
 
-	content += `    </ul>
+  content += `    </ul>
                 </div>
             </div>
         </nav>`;
 
-	document.getElementsByTagName("header")[0].className = "sticky-top";
-	document.getElementsByTagName("header")[0].innerHTML = content;
+  document.getElementsByTagName("header")[0].className = "sticky-top";
+  document.getElementsByTagName("header")[0].innerHTML = content;
 };
 
 const renderFooter = () => {
-	let content = `
+  let content = `
 			<div class="row pt-3">
 				<div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start align-items-center">
 					<p class="mb-0 text-center text-md-start">PADI Dive Center S#19636</p>
@@ -69,67 +69,97 @@ const renderFooter = () => {
 				</div>
 			</div>`;
 
-	document.getElementsByTagName("footer")[0].className = "container-fluid footer";
-	document.getElementsByTagName("footer")[0].innerHTML = content;
+  document.getElementsByTagName("footer")[0].className = "container-fluid footer";
+  document.getElementsByTagName("footer")[0].innerHTML = content;
 };
 
 const renderWhatsappIcon = () => {
-	let content = `<a href="https://api.whatsapp.com/send?phone=5491159790203" target="_blank"><img src="/img/common/logo-whatsapp.png" alt="WhatsApp" /></a>`;
-	document.getElementById("whatsapp").innerHTML = content;
+  let content = `<a href="https://api.whatsapp.com/send?phone=5491159790203" target="_blank"><img src="/img/common/logo-whatsapp.png" alt="WhatsApp" /></a>`;
+  document.getElementById("whatsapp").innerHTML = content;
 };
 
 const renderDates = () => {
-	let element = document.getElementsByClassName("currentYear");
-	if (element.length > 0) {
-		for (let i = 0; i < element.length; i++) {
-			element[i].innerHTML = year;
-		}
-	}
+  let element = document.getElementsByClassName("currentYear");
+  if (element.length > 0) {
+    for (let i = 0; i < element.length; i++) {
+      element[i].innerHTML = year;
+    }
+  }
 
-	element = document.getElementsByClassName("yearsSince1986");
-	if (element.length > 0) {
-		for (let i = 0; i < element.length; i++) {
-			element[i].innerHTML = year - 1986;
-		}
-	}
+  element = document.getElementsByClassName("yearsSince1986");
+  if (element.length > 0) {
+    for (let i = 0; i < element.length; i++) {
+      element[i].innerHTML = year - 1986;
+    }
+  }
 };
 
-const getImages = () => {
-	images.push(new Image("/img/viajes/202206-angra-dos-reis.jpg", "Angra Dos Reis Brasil"));
-	images.push(new Image("/img/viajes/202204-ilha-bela.jpg", "Ilha Bela Brasil"));
-	images.push(new Image("/img/viajes/202203-cantera-ezeiza.jpg", "Cantera Ezeiza Argentina"));
-	images.push(new Image("/img/viajes/202112-cantera-tandil-2.jpg", "Cantera Tandil Argentina"));
-	images.push(new Image("/img/viajes/202112-cantera-tandil-1.jpg", "Cantera Tandil Argentina"));
-	images.push(new Image("/img/viajes/202112-angra-dos-reis.jpg", "Angra Dos Reis Brasil"));
+const getImagesViajes = () => {
+  //2022
+  images.push(new Image("/img/viajes/202206-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "Angra Dos Reis / Brasil", ""));
+  images.push(new Image("/img/viajes/202204-ilha-bela.jpg", "Ilha Bela Brasil", "", ""));
+  images.push(new Image("/img/viajes/202203-cantera-ezeiza.jpg", "Cantera Ezeiza Argentina", "", ""));
+  //2021
+  images.push(new Image("/img/viajes/202112-cantera-tandil-2.jpg", "Cantera Tandil Argentina", "", ""));
+  images.push(new Image("/img/viajes/202112-cantera-tandil-1.jpg", "Cantera Tandil Argentina", "", ""));
+  images.push(new Image("/img/viajes/202112-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "", ""));
+  images.push(new Image("/img/viajes/202110-las-grutas.jpg", "Las Grutas Argentina", "", ""));
+  images.push(new Image("/img/viajes/202110-cantera-tandil.jpg", "Cantera Tandil Argentina", "Cantera Tandil / Argentina", ""));
+  images.push(new Image("/img/viajes/202104-las-grutas.jpg", "Las Grutas Argentina", "", ""));
+  images.push(new Image("/img/viajes/202103-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
+  images.push(new Image("/img/viajes/202102-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
 };
 
 const renderHomeViajes = () => {
-	getImages();
-	let content = "";
-	let limitFor = 0;
-	images.length >= 6 ? (limitFor = 6) : (limitFor = images.length);
-	for (let i = 0; i < limitFor; i++) {
-		content += `
+  getImagesViajes();
+  let content = "";
+  let limitFor = 0;
+  images.length >= 6 ? (limitFor = 6) : (limitFor = images.length);
+  for (let i = 0; i < limitFor; i++) {
+    content += `
 			<div class="col-sm-6 col-lg-4 p-3">
 				<img src="${images[i].src}" alt="${images[i].alt}" />
 			</div>
 			`;
-	}
-	homeViajes.innerHTML = content;
+  }
+  homeViajes.innerHTML = content;
+};
+
+const renderViajesViajes = () => {
+  getImagesViajes();
+  let content = "";
+  for (let i = 0; i < images.length; i++) {
+    content += `
+      <div class="col-md-6 col-xl-4 p-4 d-flex align-items-stretch">
+        <div class="card" style="width: 100%">
+          <img src="${images[i].src}" class="card-img-top" alt="${images[i].alt}" />
+          <div class="card-body">
+            <h3 class="card-title">${images[i].titleCard}</h3>
+            <div class="text-center py-4">
+              <a class="btnATL btnATL--verde" href="${images[i].hrefFacebook}">Ver álbum<i class="bi bi-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
+  viajesViajes.innerHTML = content;
 };
 
 /****************************** main ******************************/
 class NavbarLink {
-	constructor(label, file) {
-		this.label = label;
-		this.file = file;
-	}
+  constructor(label, file) {
+    this.label = label;
+    this.file = file;
+  }
 }
+
 class Image {
-	constructor(src, alt) {
-		this.src = src;
-		this.alt = alt;
-	}
+  constructor(src, alt, titleCard, hrefFacebook) {
+    this.src = src;
+    this.alt = alt;
+    this.titleCard = titleCard;
+    this.hrefFacebook = hrefFacebook;
+  }
 }
 
 const navbarLinks = [];
@@ -143,5 +173,10 @@ renderDates();
 
 const homeViajes = document.getElementById("homeViajes");
 if (homeViajes !== null) {
-	renderHomeViajes();
+  renderHomeViajes();
+}
+
+const viajesViajes = document.getElementById("viajesViajes");
+if (viajesViajes !== null) {
+  renderViajesViajes();
 }

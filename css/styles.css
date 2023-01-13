@@ -374,4 +374,10 @@ nav {
   margin: 0 auto;
 }
 
+#viajesViajes img {
+  display: block;
+  width: 99%;
+  margin: 3px auto;
+}
+
 /*# sourceMappingURL=styles.css.map */
