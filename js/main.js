@@ -1,33 +1,32 @@
 /****************************** functions ******************************/
-const getNavbarLinks = () => {
-  navbarLinks.push(new NavbarLink("Inicio", "/index.html"));
-  navbarLinks.push(new NavbarLink("Cursos", "/pages/cursos.html"));
-  navbarLinks.push(new NavbarLink("El Buda", "/pages/buda.html"));
-  navbarLinks.push(new NavbarLink("Viajes", "/pages/viajes.html"));
-  navbarLinks.push(new NavbarLink("Nosotros", "/pages/nosotros.html"));
-  navbarLinks.push(new NavbarLink("Contacto", "/pages/contacto.html"));
-};
-
-const renderNavbar = () => {
-  getNavbarLinks();
+const renderNavbar = (isIndex) => {
   let content = `
-        <nav class="navbar navbar-expand-md navbar-dark">
-            <div class="container-fluid position-relative">
-                <a class="navbar-brand" href="/index.html"><img src="/img/common/logoMenu.jpg" alt="Logo Atlantida Diving School" height="40px" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav">`;
+    <nav class="header__nav">
+      <div class="header__nav--brand">
+        <a href="${isIndex ? NAVBAR_LINKS[0].pathIndex : NAVBAR_LINKS[0].pathNotIndex}">
+          <img src="${isIndex ? "./" : "../"}img/common/logoMenu.jpg" alt="Logo Atlantida Diving School" />
+        </a>
+      </div>
+      <div id="navToggler" class="header__nav--toggler">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="navLinks" class="header__nav--links">
+        <ul>`;
 
-  navbarLinks.forEach((x) => {
-    content += `<li class="nav-item"><a class="nav-link px-3" href="${x.file}">${x.label}</a></li>`;
+  NAVBAR_LINKS.forEach((el) => {
+    content += `<li>
+                  <a href="${isIndex ? el.pathIndex : el.pathNotIndex}">${el.label}</a>
+                </li>`;
   });
 
-  content += `    </ul>
-                </div>
-            </div>
-        </nav>`;
+  content += `
+        </ul>
+      </div>
+    </nav>`;
 
-  document.getElementsByTagName("header")[0].className = "sticky-top";
+  document.getElementsByTagName("header")[0].className = "header";
   document.getElementsByTagName("header")[0].innerHTML = content;
 };
 
@@ -94,9 +93,21 @@ const renderDates = () => {
   }
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  const navToggler = document.getElementById("navToggler");
+  const navLinks = document.getElementById("navLinks");
+
+  document.getElementById("navToggler").addEventListener("click", () => {
+    navToggler.classList.toggle("header__nav--togglerActive");
+    navLinks.classList.toggle("header__nav--linksVisibility");
+  });
+});
+
 const getImagesViajes = () => {
   //2022
-  images.push(new Image("/img/viajes/202206-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "Angra Dos Reis / Brasil", ""));
+  images.push(
+    new Image("/img/viajes/202206-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "Angra Dos Reis / Brasil", "")
+  );
   images.push(new Image("/img/viajes/202204-ilha-bela.jpg", "Ilha Bela Brasil", "", ""));
   images.push(new Image("/img/viajes/202203-cantera-ezeiza.jpg", "Cantera Ezeiza Argentina", "", ""));
   //2021
@@ -104,7 +115,9 @@ const getImagesViajes = () => {
   images.push(new Image("/img/viajes/202112-cantera-tandil-1.jpg", "Cantera Tandil Argentina", "", ""));
   images.push(new Image("/img/viajes/202112-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "", ""));
   images.push(new Image("/img/viajes/202110-las-grutas.jpg", "Las Grutas Argentina", "", ""));
-  images.push(new Image("/img/viajes/202110-cantera-tandil.jpg", "Cantera Tandil Argentina", "Cantera Tandil / Argentina", ""));
+  images.push(
+    new Image("/img/viajes/202110-cantera-tandil.jpg", "Cantera Tandil Argentina", "Cantera Tandil / Argentina", "")
+  );
   images.push(new Image("/img/viajes/202104-las-grutas.jpg", "Las Grutas Argentina", "", ""));
   images.push(new Image("/img/viajes/202103-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
   images.push(new Image("/img/viajes/202102-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
@@ -146,13 +159,6 @@ const renderViajesViajes = () => {
 };
 
 /****************************** main ******************************/
-class NavbarLink {
-  constructor(label, file) {
-    this.label = label;
-    this.file = file;
-  }
-}
-
 class Image {
   constructor(src, alt, titleCard, hrefFacebook) {
     this.src = src;
@@ -162,11 +168,22 @@ class Image {
   }
 }
 
-const navbarLinks = [];
+const NAVBAR_LINKS = [
+  { label: "Inicio", pathIndex: "./index.html", pathNotIndex: "../index.html" },
+  { label: "Cursos", pathIndex: "./pages/cursos.html", pathNotIndex: "./cursos.html" },
+  /* { label: "El Buda", pathIndex: "./pages/buda.html", pathNotIndex: "./buda.html" }, */
+  { label: "Viajes", pathIndex: "./pages/viajes.html", pathNotIndex: "./viajes.html" },
+  { label: "Nosotros", pathIndex: "./pages/nosotros.html", pathNotIndex: "./nosotros.html" },
+  { label: "Contacto", pathIndex: "./pages/contacto.html", pathNotIndex: "./contacto.html" },
+];
+
 const images = [];
 const year = new Date().getFullYear();
 
-renderNavbar();
+const isIndex = document.getElementById("index") !== null;
+
+renderNavbar(isIndex);
+
 renderFooter();
 renderWhatsappIcon();
 renderDates();

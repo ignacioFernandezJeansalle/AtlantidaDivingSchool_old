@@ -1,10 +1,11 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background: $colorATLGrisBody;
-	font-family: "Nunito", sans-serif;
+  background: $colorATLGrisBody;
+  font-family: "Nunito", sans-serif;
+  padding-top: $heightNavbar;
 }

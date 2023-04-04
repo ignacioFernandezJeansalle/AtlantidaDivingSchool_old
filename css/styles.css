@@ -7,6 +7,7 @@
 body {
   background: #f2f2f2;
   font-family: "Nunito", sans-serif;
+  padding-top: 64px;
 }
 
 /* Fuente ATLANTIDA */
@@ -69,26 +70,104 @@ main h3 {
   transition: 0.2s;
 }
 
-nav {
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
   background: #006878;
 }
-
-.nav-link {
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+  padding: 0 20px;
+}
+.header__nav--brand img {
+  display: block;
+  width: 100%;
+}
+.header__nav--toggler {
+  display: none;
+  position: relative;
+  width: 25px;
+  height: 19px;
+  cursor: pointer;
+}
+.header__nav--toggler span {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #f2f2f2;
+  transition: all 0.3s;
+}
+.header__nav--toggler span:nth-child(1) {
+  top: 0px;
+  left: 0px;
+}
+.header__nav--toggler span:nth-child(2) {
+  top: 8px;
+  left: 0px;
+  opacity: 1;
+}
+.header__nav--toggler span:nth-child(3) {
+  bottom: 0px;
+  left: 0px;
+}
+.header__nav--togglerActive span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+.header__nav--togglerActive span:nth-child(2) {
+  opacity: 0;
+}
+.header__nav--togglerActive span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+.header__nav--links ul {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.header__nav--links ul li {
+  transition: all 0.25s;
+}
+.header__nav--links ul li a {
   color: #ffffff;
+  text-decoration: none;
 }
-.nav-link:hover {
-  opacity: 0.7;
-  transition: all 0.5s;
+.header__nav--links ul li:hover {
+  transform: translateY(-5px);
+  transition: all 0.25s;
 }
 
-@media screen and (max-width: 767px) {
-  .navbar-collapse {
+@media screen and (max-width: 768px) {
+  .header__nav--toggler {
+    display: inline-block;
+  }
+  .header__nav--links {
     position: absolute;
-    z-index: 1;
-    background: #006878;
-    top: 58px;
+    top: 63px;
     left: 0px;
     width: 100%;
+    background: #006878;
+    transform: translateX(-100%);
+    transition: all 0.25s ease;
+  }
+  .header__nav--links ul {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .header__nav--linksVisibility {
+    transform: translateX(0);
+    transition: all 0.25s ease;
   }
 }
 .footer {
@@ -249,7 +328,7 @@ nav {
     font-size: 1.2rem;
   }
   .welcome__form .form-control,
-.welcome__form .form-select {
+  .welcome__form .form-select {
     padding: 0.2rem 0.4rem;
     font-size: 0.9rem;
     border-radius: 0.2rem;
@@ -260,7 +339,7 @@ nav {
     font-size: 1rem;
   }
   .welcome__form .form-control,
-.welcome__form .form-select {
+  .welcome__form .form-select {
     padding: 0.1rem 0.2rem;
     font-size: 0.8rem;
     border-radius: 0.1rem;

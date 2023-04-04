@@ -1,23 +1,123 @@
-nav {
-	background: $colorATLVerde;
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  background: $colorATLVerde;
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: $heightNavbar;
+    padding: 0 20px;
+
+    &--brand {
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &--toggler {
+      display: none;
+      position: relative;
+      width: 25px;
+      height: 19px;
+      cursor: pointer;
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #f2f2f2;
+        transition: all 0.3s;
+
+        &:nth-child(1) {
+          top: 0px;
+          left: 0px;
+        }
+
+        &:nth-child(2) {
+          top: 8px;
+          left: 0px;
+          opacity: 1;
+        }
+
+        &:nth-child(3) {
+          bottom: 0px;
+          left: 0px;
+        }
+      }
+
+      &Active {
+        span {
+          &:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px;
+          }
+        }
+      }
+    }
+
+    &--links {
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          transition: all 0.25s;
+
+          a {
+            color: #ffffff;
+            text-decoration: none;
+          }
+
+          &:hover {
+            transform: translateY(-5px);
+            transition: all 0.25s;
+          }
+        }
+      }
+    }
+  }
 }
 
-.nav-link {
-	color: #ffffff;
+@media screen and (max-width: 768px) {
+  .header__nav--toggler {
+    display: inline-block;
+  }
 
-	&:hover {
-		opacity: 0.7;
-		transition: all 0.5s;
-	}
-}
+  .header__nav--links {
+    position: absolute;
+    top: $heightNavbar - 1px;
+    left: 0px;
+    width: 100%;
+    background: $colorATLVerde;
+    transform: translateX(-100%);
+    transition: all 0.25s ease;
 
-@media screen and (max-width: 767px) {
-	.navbar-collapse {
-		position: absolute;
-		z-index: 1;
-		background: $colorATLVerde;
-		top: 58px;
-		left: 0px;
-		width: 100%;
-	}
+    ul {
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    &Visibility {
+      transform: translateX(0);
+      transition: all 0.25s ease;
+    }
+  }
 }
