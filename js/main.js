@@ -1,4 +1,6 @@
 /****************************** functions ******************************/
+
+/*----- render navbar -----*/
 const renderNavbar = (isIndex) => {
   let content = `
     <nav class="header__nav">
@@ -30,55 +32,72 @@ const renderNavbar = (isIndex) => {
   document.getElementsByTagName("header")[0].innerHTML = content;
 };
 
-const renderFooter = () => {
+/*----- render footer -----*/
+const renderFooter = (isIndex) => {
   let content = `
-			<div class="row pt-3">
-				<div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-start align-items-center">
-					<p class="mb-0 text-center text-md-start">PADI Dive Center S#19636</p>
-				</div>
-				<div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end align-items-center footer__redesSociales">
-					<a href="https://www.instagram.com/buceo_atlantida/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-					<a href="https://www.facebook.com/BuceoAtlantida/" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-					<a href="https://twitter.com/buceoDS" target="_blank" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-					<a href="https://www.youtube.com/channel/UCoyCRFvtQJpkyWX3rAUg5Ig" target="_blank" aria-label="Youtube"><i class="bi bi-youtube"></i></a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col"><hr /></div>
-			</div>
-			<div class="row">
-				<div class="col-9 col-md-10 footer__datosContacto">
-					<a href="https://goo.gl/maps/vCSu5ATBH3A2" target="_blank">CLUB JOSE HERNANDEZ - Bragado 5950 - Mataderos - C.A.B.A. - Argentina</a>
-					<p class="mb-0">Tel.: (+54)11.4939.6268 / (+54)11.5979.0203</p>
-					<p class="mb-0">info@divingschool.com.ar</p>
-				</div>
-				<div class="col-3 col-md-2 d-flex justify-content-end align-items-center footer__logoPadi">
-					<a href="https://www.padi.com/" target="_blank"><img src="/img/common/logo-padi-transp-black.png" alt="PADI" title="PADI" height="60px" /></a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col"><hr /></div>
-			</div>
-			<div class="row">
-				<div class="col pb-5 footer__derechos">
-					<p class="pb-1">
-						Copyright &copy ${year} - <a href="https://www.instagram.com/nacho.fj/" target="_blank">[ Nacho FJ ]</a> - Todas las fotografías utilizadas en esta página son propiedad exclusiva de Atlantida Diving School, el uso no autorizado de
-						las mismas está penado por la ley.
-					</p>
-				</div>
-			</div>`;
+    <div class="footer__row">
+      <div class="footer__row--diveCenter">
+        <p>PADI Dive Center S#19636</p>
+      </div>
+      <div class="footer__row--socialNetworks">
+        <a href="${INSTAGRAM_LINK}" target="_blank" aria-label="Instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="${FACEBOOK_LINK}" target="_blank" aria-label="Facebook">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="${TWITTER_LINK}" target="_blank" aria-label="Twitter">
+          <i class="bi bi-twitter"></i>
+        </a>
+        <a href="${YOUTUBE_LINK}" target="_blank" aria-label="Youtube">
+          <i class="bi bi-youtube"></i>
+        </a>
+      </div>
+    </div>
+    <hr />
+    <div class="footer__row">
+      <div class="footer__row--contact">
+        <a href="${GOOGLE_MAPS_LINK}" target="_blank">
+          <p>CLUB JOSE HERNANDEZ - Bragado 5950 - Mataderos - C.A.B.A. - Argentina</p>
+        </a>
+        <p>Tel.: (+54)11.4939.6268 / (+54)11.5979.0203</p>
+        <p>info@divingschool.com.ar</p>
+      </div>
+      <div class="footer__row--logoPadi">
+        <a href="https://www.padi.com/" target="_blank">
+          <img src="${isIndex ? "./" : "../"}img/common/logo-padi-transp-black.png" alt="PADI" title="PADI" />
+        </a>
+      </div>
+    </div>
+    <hr />
+    <div class="footer__row">
+      <div class="footer__row--legal">
+        <p>
+          Copyright &copy ${year} - <a href="https://www.instagram.com/nacho.fj/" target="_blank">[ Nacho FJ ]</a> -
+          Todas las fotografías utilizadas en esta página son propiedad exclusiva de Atlantida Diving School, el uso
+          no autorizado de las mismas está penado por la ley.
+        </p>
+      </div>
+    </div>
+  `;
 
-  document.getElementsByTagName("footer")[0].className = "container-fluid footer";
+  document.getElementsByTagName("footer")[0].className = "footer";
   document.getElementsByTagName("footer")[0].innerHTML = content;
 };
 
-const renderWhatsappIcon = () => {
-  let content = `<a href="https://api.whatsapp.com/send?phone=5491159790203" target="_blank"><img src="/img/common/logo-whatsapp.png" alt="WhatsApp" /></a>`;
+/*----- render Whatsapp Icon -----*/
+const renderWhatsappIcon = (isIndex) => {
+  let content = `<a href="${WHATSAPP_LINK}" target="_blank"><img src="${
+    isIndex ? "./" : "../"
+  }img/common/logo-whatsapp.png" alt="WhatsApp" /></a>`;
+
   document.getElementById("whatsapp").innerHTML = content;
 };
 
+/*----- render Dates -----*/
 const renderDates = () => {
   let element = document.getElementsByClassName("currentYear");
+
   if (element.length > 0) {
     for (let i = 0; i < element.length; i++) {
       element[i].innerHTML = year;
@@ -86,6 +105,7 @@ const renderDates = () => {
   }
 
   element = document.getElementsByClassName("yearsSince1986");
+
   if (element.length > 0) {
     for (let i = 0; i < element.length; i++) {
       element[i].innerHTML = year - 1986;
@@ -93,6 +113,7 @@ const renderDates = () => {
   }
 };
 
+/*----- navbar Toogler -----*/
 document.addEventListener("DOMContentLoaded", () => {
   const navToggler = document.getElementById("navToggler");
   const navLinks = document.getElementById("navLinks");
@@ -177,15 +198,21 @@ const NAVBAR_LINKS = [
   { label: "Contacto", pathIndex: "./pages/contacto.html", pathNotIndex: "./contacto.html" },
 ];
 
+const INSTAGRAM_LINK = "https://www.instagram.com/buceo_atlantida/";
+const FACEBOOK_LINK = "https://www.facebook.com/BuceoAtlantida/";
+const TWITTER_LINK = "https://twitter.com/buceoDS";
+const YOUTUBE_LINK = "https://www.youtube.com/channel/UCoyCRFvtQJpkyWX3rAUg5Ig";
+const GOOGLE_MAPS_LINK = "https://goo.gl/maps/vCSu5ATBH3A2";
+const WHATSAPP_LINK = "https://api.whatsapp.com/send?phone=5491159790203";
+
 const images = [];
 const year = new Date().getFullYear();
 
 const isIndex = document.getElementById("index") !== null;
 
 renderNavbar(isIndex);
-
-renderFooter();
-renderWhatsappIcon();
+renderFooter(isIndex);
+renderWhatsappIcon(isIndex);
 renderDates();
 
 const homeViajes = document.getElementById("homeViajes");
