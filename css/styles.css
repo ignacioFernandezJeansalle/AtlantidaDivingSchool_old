@@ -117,18 +117,18 @@ main h3 {
   bottom: 0px;
   left: 0px;
 }
-.header__nav--togglerActive span:nth-child(1) {
+.header__nav--togglerClose span:nth-child(1) {
   transform: rotate(45deg);
   top: 8px;
 }
-.header__nav--togglerActive span:nth-child(2) {
+.header__nav--togglerClose span:nth-child(2) {
   opacity: 0;
 }
-.header__nav--togglerActive span:nth-child(3) {
+.header__nav--togglerClose span:nth-child(3) {
   transform: rotate(-45deg);
   top: 8px;
 }
-.header__nav--links ul {
+.header__nav--links {
   display: flex;
   flex-direction: row;
   gap: 25px;
@@ -136,14 +136,14 @@ main h3 {
   margin: 0;
   padding: 0;
 }
-.header__nav--links ul li {
+.header__nav--links li {
   transition: all 0.25s;
 }
-.header__nav--links ul li a {
+.header__nav--links li a {
   color: #ffffff;
   text-decoration: none;
 }
-.header__nav--links ul li:hover {
+.header__nav--links li:hover {
   transform: translateY(-5px);
   transition: all 0.25s;
 }
@@ -155,19 +155,41 @@ main h3 {
   .header__nav--links {
     position: absolute;
     top: 63px;
-    left: 0px;
-    width: 100%;
-    background: #006878;
-    transform: translateX(-100%);
-    transition: all 0.25s ease;
-  }
-  .header__nav--links ul {
     flex-direction: column;
-    padding: 20px;
+    padding: 1rem 0;
+    background: #006878;
+    left: 0px;
+    width: 0%;
+    overflow: hidden;
+    animation-name: navLinksHide;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
   }
-  .header__nav--linksVisibility {
-    transform: translateX(0);
-    transition: all 0.25s ease;
+  .header__nav--links li {
+    padding-left: 1rem;
+  }
+  .header__nav--linksShow {
+    width: 100%;
+    overflow: hidden;
+    animation-name: navLinksShow;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+  }
+}
+@keyframes navLinksShow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes navLinksHide {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
   }
 }
 .footer {

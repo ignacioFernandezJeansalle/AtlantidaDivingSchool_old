@@ -52,7 +52,7 @@
         }
       }
 
-      &Active {
+      &Close {
         span {
           &:nth-child(1) {
             transform: rotate(45deg);
@@ -70,26 +70,24 @@
     }
 
     &--links {
-      ul {
-        display: flex;
-        flex-direction: row;
-        gap: 25px;
-        list-style: none;
-        margin: 0;
-        padding: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 25px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
 
-        li {
+      li {
+        transition: all 0.25s;
+
+        a {
+          color: #ffffff;
+          text-decoration: none;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
           transition: all 0.25s;
-
-          a {
-            color: #ffffff;
-            text-decoration: none;
-          }
-
-          &:hover {
-            transform: translateY(-5px);
-            transition: all 0.25s;
-          }
         }
       }
     }
@@ -97,27 +95,53 @@
 }
 
 @media screen and (max-width: 768px) {
-  .header__nav--toggler {
-    display: inline-block;
-  }
+  .header__nav {
+    &--toggler {
+      display: inline-block;
+    }
 
-  .header__nav--links {
-    position: absolute;
-    top: $heightNavbar - 1px;
-    left: 0px;
-    width: 100%;
-    background: $colorATLVerde;
-    transform: translateX(-100%);
-    transition: all 0.25s ease;
-
-    ul {
+    &--links {
+      position: absolute;
+      top: $heightNavbar - 1px;
       flex-direction: column;
-      padding: 20px;
-    }
+      padding: 1rem 0;
+      background: $colorATLVerde;
+      left: 0px;
+      width: 0%;
+      overflow: hidden;
+      animation-name: navLinksHide;
+      animation-duration: 0.3s;
+      animation-timing-function: ease;
 
-    &Visibility {
-      transform: translateX(0);
-      transition: all 0.25s ease;
+      li {
+        padding-left: 1rem;
+      }
+
+      &Show {
+        width: 100%;
+        overflow: hidden;
+        animation-name: navLinksShow;
+        animation-duration: 0.3s;
+        animation-timing-function: ease;
+      }
     }
+  }
+}
+
+@keyframes navLinksShow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes navLinksHide {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
   }
 }

@@ -14,8 +14,7 @@ const renderNavbar = (isIndex) => {
         <span></span>
         <span></span>
       </div>
-      <div id="navLinks" class="header__nav--links">
-        <ul>`;
+      <ul id="navLinks" class="header__nav--links">`;
 
   NAVBAR_LINKS.forEach((el) => {
     content += `<li>
@@ -24,8 +23,7 @@ const renderNavbar = (isIndex) => {
   });
 
   content += `
-        </ul>
-      </div>
+      </ul>
     </nav>`;
 
   document.getElementsByTagName("header")[0].className = "header";
@@ -119,8 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.getElementById("navLinks");
 
   document.getElementById("navToggler").addEventListener("click", () => {
-    navToggler.classList.toggle("header__nav--togglerActive");
-    navLinks.classList.toggle("header__nav--linksVisibility");
+    navToggler.classList.toggle("header__nav--togglerClose");
+    navLinks.classList.toggle("header__nav--linksShow");
   });
 });
 
@@ -192,7 +190,7 @@ class Image {
 const NAVBAR_LINKS = [
   { label: "Inicio", pathIndex: "./index.html", pathNotIndex: "../index.html" },
   { label: "Cursos", pathIndex: "./pages/cursos.html", pathNotIndex: "./cursos.html" },
-  /* { label: "El Buda", pathIndex: "./pages/buda.html", pathNotIndex: "./buda.html" }, */
+  { label: "El Buda", pathIndex: "./pages/buda.html", pathNotIndex: "./buda.html" },
   { label: "Viajes", pathIndex: "./pages/viajes.html", pathNotIndex: "./viajes.html" },
   { label: "Nosotros", pathIndex: "./pages/nosotros.html", pathNotIndex: "./nosotros.html" },
   { label: "Contacto", pathIndex: "./pages/contacto.html", pathNotIndex: "./contacto.html" },
