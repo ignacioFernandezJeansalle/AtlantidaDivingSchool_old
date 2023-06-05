@@ -148,11 +148,7 @@ const renderHomeViajes = () => {
   let limitFor = 0;
   images.length >= 6 ? (limitFor = 6) : (limitFor = images.length);
   for (let i = 0; i < limitFor; i++) {
-    content += `
-			<div class="col-sm-6 col-lg-4 p-3">
-				<img src="${images[i].src}" alt="${images[i].alt}" />
-			</div>
-			`;
+    content += `<img src=".${images[i].src}" alt="${images[i].alt}" />`;
   }
   homeViajes.innerHTML = content;
 };
