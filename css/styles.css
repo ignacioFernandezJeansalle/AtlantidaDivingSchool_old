@@ -275,6 +275,7 @@ main h3 {
   }
 }
 .btnATL {
+  max-width: fit-content;
   padding: 10px;
 }
 .btnATL a {
@@ -430,6 +431,9 @@ main h3 {
     font-size: 0.9rem;
   }
 }
+/*****************/
+/* INTRO ESCUELA */
+/*****************/
 .intro__escuela {
   display: flex;
   flex-direction: row;
@@ -464,6 +468,9 @@ main h3 {
     min-width: 360px;
   }
 }
+/****************/
+/* INTRO CURSOS */
+/****************/
 .intro__cursos {
   display: flex;
   flex-direction: column;
@@ -490,6 +497,43 @@ main h3 {
 @media screen and (max-width: 768px) {
   .intro__cursos--links {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+/*****************/
+/* INTRO EL BUDA */
+/*****************/
+.intro__buda {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.intro__buda--left {
+  display: flex;
+  justify-content: center;
+  min-width: 480px;
+  padding: 20px 10px;
+}
+.intro__buda--right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 460px;
+  padding: 20px 10px;
+}
+.intro__buda--right h2 {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .intro__buda {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 480px) {
+  .intro__buda--left {
+    min-width: 360px;
   }
 }
 .introContacto {

@@ -139,6 +139,10 @@
   }
 }
 
+/*****************/
+/* INTRO ESCUELA */
+/*****************/
+
 .intro__escuela {
   display: flex;
   flex-direction: row;
@@ -178,6 +182,10 @@
   }
 }
 
+/****************/
+/* INTRO CURSOS */
+/****************/
+
 .intro__cursos {
   display: flex;
   flex-direction: column;
@@ -208,6 +216,49 @@
 @media screen and (max-width: 768px) {
   .intro__cursos--links {
     grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/*****************/
+/* INTRO EL BUDA */
+/*****************/
+
+.intro__buda {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &--left {
+    display: flex;
+    justify-content: center;
+    min-width: 480px;
+    padding: 20px 10px;
+  }
+
+  &--right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 460px;
+    padding: 20px 10px;
+
+    h2 {
+      font-size: 3.5rem;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .intro__buda {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .intro__buda--left {
+    min-width: 360px;
   }
 }
 
