@@ -1,0 +1,23 @@
+.contact__form {
+  width: 90%;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px;
+
+  legend {
+    font-family: "OstrichSans-Heavy";
+    font-size: 2.25rem;
+    color: #ffffff;
+    margin-bottom: 0.4rem;
+    line-height: 1.1;
+  }
+
+  .form-control,
+  .form-select {
+    margin-bottom: 8px;
+
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba(0, 104, 120, 0.25);
+    }
+  }
+}

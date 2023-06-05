@@ -1,73 +1,79 @@
 $map-h1-h2-h3: (
-	fuente: "OstrichSans-Heavy",
-	tamanoFuente: 2.5rem,
-	tamanoFuenteMobile: 2rem,
-	margenInferior: 0.5rem,
-	alineacion: center,
+  fuente: "OstrichSans-Heavy",
+  tamanoFuente: 2.5rem,
+  tamanoFuenteMobile: 2rem,
+  margenInferior: 0.5rem,
+  alineacion: center,
 );
 
 main {
-	h1 {
-		font-family: map-get($map-h1-h2-h3, fuente);
-		font-size: map-get($map-h1-h2-h3, tamanoFuente);
-		margin-bottom: map-get($map-h1-h2-h3, margenInferior);
-		text-align: map-get($map-h1-h2-h3, alineacion);
-	}
+  h1 {
+    font-family: map-get($map-h1-h2-h3, fuente);
+    font-size: map-get($map-h1-h2-h3, tamanoFuente);
+    margin-bottom: map-get($map-h1-h2-h3, margenInferior);
+    text-align: map-get($map-h1-h2-h3, alineacion);
+  }
 
-	h2 {
-		@extend h1;
-		font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.9;
-		margin-bottom: map-get($map-h1-h2-h3, margenInferior)-0.1rem;
-	}
+  h2 {
+    @extend h1;
+    font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.9;
+    margin-bottom: map-get($map-h1-h2-h3, margenInferior)-0.1rem;
+  }
 
-	h3 {
-		@extend h1;
-		font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.8;
-		margin-bottom: map-get($map-h1-h2-h3, margenInferior)-0.2rem;
-	}
+  h3 {
+    @extend h1;
+    font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.8;
+    margin-bottom: map-get($map-h1-h2-h3, margenInferior)-0.2rem;
+  }
 }
 
 #whatsapp {
-	position: fixed;
-	bottom: 5px;
-	right: 5px;
-	z-index: 10;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+  z-index: 10;
 
-	a {
-		img {
-			width: 60px;
+  a {
+    img {
+      width: 60px;
 
-			&:hover {
-				transform: scale(1.1);
-			}
-		}
-	}
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.container__main {
+  width: 100%;
+  margin: 0;
+  padding: 3rem 0;
 }
 
 .bkgATLBody {
-	background: $colorATLGrisBody;
+  background: $colorATLGrisBody;
 }
 
 .bkgATLBodyCont {
-	background: $colorATLGrisBodyContr;
+  background: $colorATLGrisBodyContr;
 }
 
 .border-radius {
-	border-radius: 5px;
+  border-radius: 5px;
 }
 
 .youtube {
-	width: 100%;
-	max-width: 480px;
+  width: 100%;
+  max-width: 480px;
 }
 
 .linkCurso {
-	border-radius: 5px;
-	transition: 0.2s;
+  border-radius: 5px;
+  transition: 0.2s;
 
-	&:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
-		transition: 0.2s;
-	}
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
+    transition: 0.2s;
+  }
 }
