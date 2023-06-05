@@ -169,8 +169,45 @@
 @media screen and (max-width: 768px) {
   .intro__escuela {
     flex-direction: column;
-    //justify-content: center;
-    //align-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .intro__escuela--right {
+    min-width: 360px;
+  }
+}
+
+.intro__cursos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+
+  &--links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 3rem;
+    padding: 0 20px;
+
+    a {
+      display: block;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .intro__cursos--links {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
