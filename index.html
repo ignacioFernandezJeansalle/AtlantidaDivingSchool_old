@@ -30,6 +30,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
     <!-- CSS -->
     <link rel="stylesheet" href="./css/styles.css" />
+
+    <!-- Animate On Scroll Library    https://michalsnik.github.io/aos/ -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -128,7 +131,7 @@
 
       <!-- Sección de presentación de nuestro centro de buceo -->
       <section class="container__main intro__escuela">
-        <div class="intro__escuela--left">
+        <div class="intro__escuela--left" data-aos="fade-right" data-aos-duration="500">
           <h1>
             Escuela de buceo<br />
             ATLANTIDA Diving School
@@ -140,7 +143,7 @@
             </a>
           </div>
         </div>
-        <div class="intro__escuela--right">
+        <div class="intro__escuela--right" data-aos="fade-left" data-aos-duration="500">
           <iframe
             class="youtube"
             width="480"
@@ -157,7 +160,7 @@
       <!-- Sección de introducción a los cursos y especialidades -->
       <section class="container__main bkgATLBodyCont intro__cursos">
         <h2>Cursos de buceo & especialidades</h2>
-        <div class="intro__cursos--links">
+        <div class="intro__cursos--links" data-aos="flip-left" data-aos-duration="500">
           <a href="./pages/cursos/c1OpenWaterDiver.html">
             <img class="linkCurso" src="./img/cursos/OWD.jpg" alt="Curso Open Water Diver" />
           </a>
@@ -178,7 +181,7 @@
 
       <!-- Sección de intro al Buda -->
       <section class="container__main intro__buda">
-        <div class="intro__buda--left">
+        <div class="intro__buda--left" data-aos="fade-right" data-aos-duration="500">
           <iframe
             class="youtube"
             width="480"
@@ -190,7 +193,7 @@
             allowfullscreen
           ></iframe>
         </div>
-        <div class="intro__buda--right">
+        <div class="intro__buda--right" data-aos="fade-left" data-aos-duration="500">
           <h2>Espejo de agua<br />EL BUDA</h2>
           <div class="btnATL btnATL--rojo">
             <a href="./pages/buda.html">Conocé El Buda<i class="bi bi-arrow-right"></i></a>
@@ -201,7 +204,7 @@
       <!-- Sección de intro a viajes -->
       <section class="container__main bkgATLBodyCont intro__viajes">
         <h2>Viajes y salidas de buceo</h2>
-        <div id="homeViajes"></div>
+        <div id="homeViajes" data-aos="zoom-in-down" data-aos-duration="500"></div>
         <div class="btnATL btnATL--rojo">
           <a href="./pages/viajes.html">+ Viajes<i class="bi bi-arrow-right"></i></a>
         </div>
@@ -243,5 +246,11 @@
       crossorigin="anonymous"
     ></script>
     <script src="/js/main.js"></script>
+
+    <!-- Animate On Scroll Library    https://michalsnik.github.io/aos/ -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
