@@ -554,6 +554,7 @@ main h3 {
   grid-gap: 30px;
   margin-bottom: 3rem;
   padding: 0 50px;
+  max-width: 1400px;
 }
 .intro__viajes #homeViajes img {
   display: block;
@@ -574,13 +575,26 @@ main h3 {
 /******************/
 /* INTRO CONTACTO */
 /******************/
-.introContacto {
-  margin: 10px;
-  padding: 40px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
+.intro__contacto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.intro__contacto h2 {
+  margin-bottom: 3rem;
+}
+.intro__contacto--detalles {
+  max-width: 768px;
+  margin: 0 50px;
 }
 
+@media screen and (max-width: 768px) {
+  .intro__contacto--detalles {
+    max-width: 90%;
+    margin: 0;
+  }
+}
 .cursos__flex {
   width: 100%;
   padding: 0 20px;
