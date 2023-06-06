@@ -1,12 +1,12 @@
 /****************************** functions ******************************/
 
 /*----- render navbar -----*/
-const renderNavbar = (isIndex) => {
+const renderNavbar = (isRoot) => {
   let content = `
     <nav class="header__nav">
       <div class="header__nav--brand">
-        <a href="${isIndex ? NAVBAR_LINKS[0].pathIndex : NAVBAR_LINKS[0].pathNotIndex}">
-          <img src="${isIndex ? "./" : "../"}img/common/logoMenu.jpg" alt="Logo Atlantida Diving School" />
+        <a href="${isRoot ? NAVBAR_LINKS[0].pathRoot : NAVBAR_LINKS[0].pathNotRoot}">
+          <img src="${isRoot ? "./" : "../../"}img/common/logoMenu.webp" alt="Logo Atlantida Diving School" />
         </a>
       </div>
       <div id="navToggler" class="header__nav--toggler">
@@ -18,7 +18,7 @@ const renderNavbar = (isIndex) => {
 
   NAVBAR_LINKS.forEach((el) => {
     content += `<li>
-                  <a href="${isIndex ? el.pathIndex : el.pathNotIndex}">${el.label}</a>
+                  <a href="${isRoot ? el.pathRoot : el.pathNotRoot}">${el.label}</a>
                 </li>`;
   });
 
@@ -31,7 +31,7 @@ const renderNavbar = (isIndex) => {
 };
 
 /*----- render footer -----*/
-const renderFooter = (isIndex) => {
+const renderFooter = (isRoot) => {
   let content = `
     <div class="footer__row">
       <div class="footer__row--diveCenter">
@@ -63,7 +63,7 @@ const renderFooter = (isIndex) => {
       </div>
       <div class="footer__row--logoPadi">
         <a href="https://www.padi.com/" target="_blank">
-          <img src="${isIndex ? "./" : "../"}img/common/logo-padi-transp-black.png" alt="PADI" title="PADI" />
+          <img src="${isRoot ? "./" : "../../"}img/common/logo-padi-transp-black.png" alt="PADI" title="PADI" />
         </a>
       </div>
     </div>
@@ -84,16 +84,16 @@ const renderFooter = (isIndex) => {
 };
 
 /*----- render Whatsapp Icon -----*/
-const renderWhatsappIcon = (isIndex) => {
+const renderWhatsappIcon = (isRoot) => {
   let content = `<a href="${WHATSAPP_LINK}" target="_blank"><img src="${
-    isIndex ? "./" : "../"
+    isRoot ? "./" : "../../"
   }img/common/logo-whatsapp.png" alt="WhatsApp" /></a>`;
 
   document.getElementById("whatsapp").innerHTML = content;
 };
 
-/*----- render Dates -----*/
-const renderDates = () => {
+/*----- render Year -----*/
+const renderYear = (year) => {
   let element = document.getElementsByClassName("currentYear");
 
   if (element.length > 0) {
@@ -125,30 +125,32 @@ document.addEventListener("DOMContentLoaded", () => {
 const getImagesViajes = () => {
   //2022
   images.push(
-    new Image("/img/viajes/202206-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "Angra Dos Reis / Brasil", "")
+    new Image("img/viajes/202206-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "Angra Dos Reis / Brasil", "")
   );
-  images.push(new Image("/img/viajes/202204-ilha-bela.jpg", "Ilha Bela Brasil", "", ""));
-  images.push(new Image("/img/viajes/202203-cantera-ezeiza.jpg", "Cantera Ezeiza Argentina", "", ""));
+  images.push(new Image("img/viajes/202204-ilha-bela.jpg", "Ilha Bela Brasil", "", ""));
+  images.push(new Image("img/viajes/202203-cantera-ezeiza.jpg", "Cantera Ezeiza Argentina", "", ""));
   //2021
-  images.push(new Image("/img/viajes/202112-cantera-tandil-2.jpg", "Cantera Tandil Argentina", "", ""));
-  images.push(new Image("/img/viajes/202112-cantera-tandil-1.jpg", "Cantera Tandil Argentina", "", ""));
-  images.push(new Image("/img/viajes/202112-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "", ""));
-  images.push(new Image("/img/viajes/202110-las-grutas.jpg", "Las Grutas Argentina", "", ""));
+  images.push(new Image("img/viajes/202112-cantera-tandil-2.jpg", "Cantera Tandil Argentina", "", ""));
+  images.push(new Image("img/viajes/202112-cantera-tandil-1.jpg", "Cantera Tandil Argentina", "", ""));
+  images.push(new Image("img/viajes/202112-angra-dos-reis.jpg", "Angra Dos Reis Brasil", "", ""));
+  images.push(new Image("img/viajes/202110-las-grutas.jpg", "Las Grutas Argentina", "", ""));
   images.push(
-    new Image("/img/viajes/202110-cantera-tandil.jpg", "Cantera Tandil Argentina", "Cantera Tandil / Argentina", "")
+    new Image("img/viajes/202110-cantera-tandil.jpg", "Cantera Tandil Argentina", "Cantera Tandil / Argentina", "")
   );
-  images.push(new Image("/img/viajes/202104-las-grutas.jpg", "Las Grutas Argentina", "", ""));
-  images.push(new Image("/img/viajes/202103-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
-  images.push(new Image("/img/viajes/202102-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
+  images.push(new Image("img/viajes/202104-las-grutas.jpg", "Las Grutas Argentina", "", ""));
+  images.push(new Image("img/viajes/202103-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
+  images.push(new Image("img/viajes/202102-cantera-tandil.jpg", "Cantera Tandil Argentina", "", ""));
 };
 
 const renderHomeViajes = () => {
   getImagesViajes();
   let content = "";
-  let limitFor = 0;
+  let limitFor;
   images.length >= 6 ? (limitFor = 6) : (limitFor = images.length);
-  for (let i = 0; i < limitFor; i++) {
-    content += `<img src=".${images[i].src}" alt="${images[i].alt}" />`;
+  if (limitFor > 0) {
+    for (let i = 0; i < limitFor; i++) {
+      content += `<img src="./${images[i].src}" alt="${images[i].alt}" />`;
+    }
   }
   homeViajes.innerHTML = content;
 };
@@ -184,12 +186,12 @@ class Image {
 }
 
 const NAVBAR_LINKS = [
-  { label: "Inicio", pathIndex: "./index.html", pathNotIndex: "../index.html" },
-  { label: "Cursos", pathIndex: "./pages/cursos.html", pathNotIndex: "./cursos.html" },
-  { label: "El Buda", pathIndex: "./pages/buda.html", pathNotIndex: "./buda.html" },
-  { label: "Viajes", pathIndex: "./pages/viajes.html", pathNotIndex: "./viajes.html" },
-  { label: "Nosotros", pathIndex: "./pages/nosotros.html", pathNotIndex: "./nosotros.html" },
-  { label: "Contacto", pathIndex: "./pages/contacto.html", pathNotIndex: "./contacto.html" },
+  { label: "Inicio", pathRoot: "./index.html", pathNotRoot: "../../index.html" },
+  { label: "Cursos", pathRoot: "./cursos.html", pathNotRoot: "../../cursos.html" },
+  { label: "El Buda", pathRoot: "./buda.html", pathNotRoot: "../../buda.html" },
+  { label: "Viajes", pathRoot: "./viajes.html", pathNotRoot: "../../viajes.html" },
+  { label: "Nosotros", pathRoot: "./nosotros.html", pathNotRoot: "../../nosotros.html" },
+  { label: "Contacto", pathRoot: "./contacto.html", pathNotRoot: "../../contacto.html" },
 ];
 
 const INSTAGRAM_LINK = "https://www.instagram.com/buceo_atlantida/";
@@ -202,17 +204,18 @@ const WHATSAPP_LINK = "https://api.whatsapp.com/send?phone=5491159790203";
 const images = [];
 const year = new Date().getFullYear();
 
-const isIndex = document.getElementById("index") !== null;
+const isRoot = document.getElementById("root") !== null;
 
-renderNavbar(isIndex);
-renderFooter(isIndex);
-renderWhatsappIcon(isIndex);
-renderDates();
+renderNavbar(isRoot);
+renderFooter(isRoot);
+renderWhatsappIcon(isRoot);
+renderYear(year);
 
-const homeViajes = document.getElementById("homeViajes");
+if (document.getElementById("homeViajes") !== null) renderHomeViajes();
+/* const homeViajes = document.getElementById("homeViajes");
 if (homeViajes !== null) {
   renderHomeViajes();
-}
+} */
 
 const viajesViajes = document.getElementById("viajesViajes");
 if (viajesViajes !== null) {
