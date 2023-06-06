@@ -1,43 +1,111 @@
-.cursos__flex {
-	width: 100%;
-	padding: 0 20px;
-	display: flex;
-	flex-direction: column;
-	box-shadow: 0 4px 8px 0 rgba(0, 104, 120, 0.7);
-	border-radius: 5px;
+/*********************/
+/* CURSOS: PRINCIPAL */
+/*********************/
 
-	hr {
-		color: #dc0054;
-	}
+.cursos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    "titulo   titulo"
+    "detalles links";
+  grid-gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto 3rem auto;
 
-	a {
-		margin: 10px auto;
-	}
+  &--titulo {
+    grid-area: titulo;
+    margin-top: 1rem;
+  }
+
+  &--detalles {
+    grid-area: detalles;
+    max-width: 550px;
+    margin: 0 0 0 auto;
+    padding: 0 0 0 50px;
+  }
+
+  &--links {
+    grid-area: links;
+    max-width: 500px;
+    margin: 0 auto 0 0;
+    padding: 0 50px 0 0;
+
+    a {
+      display: block;
+      margin: 20px auto;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 1rem;
+  }
+
+  hr {
+    color: $colorATLRojo;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cursos__grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "titulo"
+      "detalles"
+      "links";
+    grid-gap: 20px;
+
+    &--detalles,
+    &--links {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 880px) and (min-width: 769px) {
+  .cursos__grid {
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width: 881px) {
+  .cursos__grid {
+    h2 {
+      font-size: 2rem;
+    }
+  }
 }
 
 .flexLista {
-	display: flex;
-	flex-direction: row;
-	margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
 
-	&__ico {
-		width: 30px;
-		height: 30px;
-		background-image: url(/img/common/shortcutIcon.ico);
-		background-repeat: no-repeat;
-		background-size: contain;
-		margin-right: 10px;
-		margin-bottom: 25px;
-	}
+  &__ico {
+    width: 30px;
+    height: 30px;
+    background-image: url(/img/common/shortcutIcon.ico);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 10px;
+    margin-bottom: 25px;
+  }
 
-	&__texto {
-		width: 100%;
-		margin-bottom: 25px;
-		text-align: justify;
-	}
+  &__texto {
+    width: 100%;
+    margin-bottom: 25px;
+    text-align: justify;
+  }
 }
 
 .cursosCarousel {
-	max-width: 400px;
-	margin: 0 auto;
+  max-width: 400px;
+  margin: 0 auto;
 }

@@ -1,6 +1,6 @@
 $map-h1-h2-h3: (
   fuente: "OstrichSans-Heavy",
-  tamanoFuente: 2.5rem,
+  tamanoFuente: 3rem,
   tamanoFuenteMobile: 2rem,
   margenInferior: 0.5rem,
   alineacion: center,
@@ -16,13 +16,13 @@ main {
 
   h2 {
     @extend h1;
-    font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.9;
+    font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.8;
     margin-bottom: map-get($map-h1-h2-h3, margenInferior)-0.1rem;
   }
 
   h3 {
     @extend h1;
-    font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.8;
+    font-size: map-get($map-h1-h2-h3, tamanoFuente) * 0.7;
     margin-bottom: map-get($map-h1-h2-h3, margenInferior)-0.2rem;
   }
 }
