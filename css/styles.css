@@ -277,7 +277,8 @@ main h3 {
 }
 .btnATL {
   max-width: fit-content;
-  padding: 10px;
+  padding: 20px;
+  margin: 0 auto;
 }
 .btnATL a {
   display: block;
@@ -622,32 +623,43 @@ main h3 {
 .cursos__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "titulo   titulo" "detalles links";
+  grid-template-areas: "titulo   titulo" "detalles media";
   grid-gap: 60px;
   max-width: 1400px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 2rem auto;
 }
 .cursos__grid--titulo {
+  border: none;
   grid-area: titulo;
-  margin-top: 1rem;
 }
 .cursos__grid--detalles {
+  border: none;
   grid-area: detalles;
+}
+.cursos__grid--detalles-content {
+  display: flex;
+  flex-direction: column;
   max-width: 550px;
   margin: 0 0 0 auto;
   padding: 0 0 0 50px;
 }
-.cursos__grid--links {
-  grid-area: links;
-  max-width: 500px;
+.cursos__grid--media {
+  border: none;
+  grid-area: media;
+}
+.cursos__grid--media-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
   margin: 0 auto 0 0;
   padding: 0 50px 0 0;
 }
-.cursos__grid--links a {
+.cursos__grid--media a {
   display: block;
-  margin: 20px auto;
+  text-decoration: none;
+  margin: 10px auto;
 }
-.cursos__grid--links a img {
+.cursos__grid--media a img {
   width: 100%;
 }
 .cursos__grid h2 {
@@ -657,26 +669,34 @@ main h3 {
   color: #dc0054;
 }
 
-@media screen and (max-width: 768px) {
-  .cursos__grid {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-areas: "titulo" "detalles" "links";
-    grid-gap: 20px;
+@media screen and (max-width: 1100px) and (min-width: 769px) {
+  .cursos__grid--detalles-content {
+    padding: 0 0 0 15px;
   }
-  .cursos__grid--detalles, .cursos__grid--links {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-}
-@media screen and (max-width: 880px) and (min-width: 769px) {
-  .cursos__grid h2 {
-    font-size: 1.8rem;
+  .cursos__grid--media-content {
+    padding: 0 15px 0 0;
   }
 }
 @media screen and (max-width: 992px) and (min-width: 881px) {
   .cursos__grid h2 {
     font-size: 2rem;
+  }
+}
+@media screen and (max-width: 880px) and (min-width: 769px) {
+  .cursos__grid h2 {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .cursos__grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas: "titulo" "detalles" "media";
+    grid-gap: 20px;
+  }
+  .cursos__grid--detalles-content, .cursos__grid--media-content {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 15px;
   }
 }
 .flexLista {

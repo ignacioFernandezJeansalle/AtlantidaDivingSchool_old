@@ -7,32 +7,45 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
     "titulo   titulo"
-    "detalles links";
+    "detalles media";
   grid-gap: 60px;
   max-width: 1400px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 2rem auto;
 
   &--titulo {
+    border: $borderATL;
     grid-area: titulo;
-    margin-top: 1rem;
   }
 
   &--detalles {
+    border: $borderATL;
     grid-area: detalles;
-    max-width: 550px;
-    margin: 0 0 0 auto;
-    padding: 0 0 0 50px;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 550px;
+      margin: 0 0 0 auto;
+      padding: 0 0 0 50px;
+    }
   }
 
-  &--links {
-    grid-area: links;
-    max-width: 500px;
-    margin: 0 auto 0 0;
-    padding: 0 50px 0 0;
+  &--media {
+    border: $borderATL;
+    grid-area: media;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 550px;
+      margin: 0 auto 0 0;
+      padding: 0 50px 0 0;
+    }
 
     a {
       display: block;
-      margin: 20px auto;
+      text-decoration: none;
+      margin: 10px auto;
 
       img {
         width: 100%;
@@ -49,28 +62,14 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) and (min-width: 769px) {
   .cursos__grid {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-areas:
-      "titulo"
-      "detalles"
-      "links";
-    grid-gap: 20px;
-
-    &--detalles,
-    &--links {
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 0 15px;
+    &--detalles-content {
+      padding: 0 0 0 15px;
     }
-  }
-}
 
-@media screen and (max-width: 880px) and (min-width: 769px) {
-  .cursos__grid {
-    h2 {
-      font-size: 1.8rem;
+    &--media-content {
+      padding: 0 15px 0 0;
     }
   }
 }
@@ -79,6 +78,32 @@
   .cursos__grid {
     h2 {
       font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 880px) and (min-width: 769px) {
+  .cursos__grid {
+    h2 {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cursos__grid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "titulo"
+      "detalles"
+      "media";
+    grid-gap: 20px;
+
+    &--detalles-content,
+    &--media-content {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 0 15px;
     }
   }
 }
